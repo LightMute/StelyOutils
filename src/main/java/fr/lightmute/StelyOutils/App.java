@@ -30,7 +30,7 @@ public class App extends JavaPlugin implements Listener{
 				player.sendMessage(prefix + player.getItemInHand().getI18NDisplayName() + " devient faible !");
 				player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
 			}else if(player.getItemInHand().getDurability() / 3 == player.getItemInHand().getDurability()) {
-				player.sendMessage(prefix + player.getItemInHand().getI18NDisplayName() + " devient tres faible !");
+				player.sendMessage(prefix + player.getItemInHand().getI18NDisplayName() + " devient trés faible !");
 				player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
 			}else if(player.getItemInHand().getDurability() / 4 == player.getItemInHand().getDurability()) {
 				player.sendMessage(prefix + player.getItemInHand().getI18NDisplayName() + " va cassé !");
