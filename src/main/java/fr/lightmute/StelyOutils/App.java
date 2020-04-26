@@ -24,7 +24,7 @@ public class App extends JavaPlugin implements Listener{
 	@EventHandler
 	public void getoutilsdurab(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
-
+Bukkit.broadcastMessage("ok");
 		if(player.getItemInHand().getType().getMaxDurability()/ 2 <= player.getItemInHand().getDurability() && player.getItemInHand().getType().getMaxDurability() / 3 > player.getItemInHand().getDurability()) {
 			player.sendMessage(prefix + player.getItemInHand().getItemMeta().getDisplayName() + " devient faible !");
 			player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
