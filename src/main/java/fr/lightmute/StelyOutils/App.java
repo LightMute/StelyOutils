@@ -26,13 +26,13 @@ public class App extends JavaPlugin implements Listener{
 		Player player = e.getPlayer();
 		
 		if(player.getItemInHand() != null) {
-			if(player.getItemInHand().getDurability() / 2 == player.getItemInHand().getDurability()) {
+			if(player.getItemInHand().getType().getMaxDurability()/ 2 == player.getItemInHand().getDurability()) {
 				player.sendMessage(prefix + player.getItemInHand().getI18NDisplayName() + " devient faible !");
 				player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
-			}else if(player.getItemInHand().getDurability() / 3 == player.getItemInHand().getDurability()) {
+			}else if(player.getItemInHand().getType().getMaxDurability() / 3 == player.getItemInHand().getDurability()) {
 				player.sendMessage(prefix + player.getItemInHand().getI18NDisplayName() + " devient trés faible !");
 				player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
-			}else if(player.getItemInHand().getDurability() / 4 == player.getItemInHand().getDurability()) {
+			}else if(player.getItemInHand().getType().getMaxDurability() / 4 == player.getItemInHand().getDurability()) {
 				player.sendMessage(prefix + player.getItemInHand().getI18NDisplayName() + " va cassé !");
 				player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
 			}
