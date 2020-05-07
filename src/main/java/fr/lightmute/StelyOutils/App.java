@@ -26,21 +26,10 @@ public class App extends JavaPlugin implements Listener{
 	@EventHandler
 	public void getoutilsdurab(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
-
-		if(!playerspam.containsKey(player.getName())) {
-			playerspam.put(player.getName(), true);
-		}
-
-		if(Integer.valueOf(player.getItemInHand().getDurability()) <= 0) {
-			playerspam.replace(player.getName(), true);
-		}
 		
 		if((Integer.valueOf(player.getItemInHand().getType().getMaxDurability())/ 4) < Integer.valueOf(player.getItemInHand().getDurability()) && (Integer.valueOf(player.getItemInHand().getType().getMaxDurability())/ 5) > Integer.valueOf(player.getItemInHand().getDurability())) {
-			if(playerspam.get(player.getName()).equals(true)){
 				player.sendActionBar(prefix + player.getItemInHand().getItemMeta().getDisplayName() + " est faible !");
 				player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
-				playerspam.replace(player.getName(), false);
-			}
 		}
 	}
 }
