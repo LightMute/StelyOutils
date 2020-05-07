@@ -37,7 +37,7 @@ public class App extends JavaPlugin implements Listener{
 		
 		if((Integer.valueOf(player.getItemInHand().getType().getMaxDurability())/ 4) < Integer.valueOf(player.getItemInHand().getDurability()) && (Integer.valueOf(player.getItemInHand().getType().getMaxDurability())/ 5) > Integer.valueOf(player.getItemInHand().getDurability())) {
 			if(playerspam.get(player.getName()).equals(true)){
-				player.sendActionBar(prefix + player.getItemInHand().getItemMeta().getDisplayName() + " devient faible !");
+				player.sendActionBar(prefix + player.getItemInHand().getItemMeta().getDisplayName() + " est faible !");
 				player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
 				playerspam.replace(player.getName(), false);
 			}
