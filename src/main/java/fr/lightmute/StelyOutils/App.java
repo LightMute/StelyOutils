@@ -3,7 +3,6 @@ package fr.lightmute.StelyOutils;
 import java.util.HashMap;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -29,7 +28,7 @@ public class App extends JavaPlugin implements Listener{
 		
 		if((Integer.valueOf(player.getItemInHand().getType().getMaxDurability())/ 4) < Integer.valueOf(player.getItemInHand().getDurability()) && (Integer.valueOf(player.getItemInHand().getType().getMaxDurability())/ 5) > Integer.valueOf(player.getItemInHand().getDurability())) {
 				player.sendActionBar(prefix + player.getItemInHand().getItemMeta().getDisplayName() + " est faible !");
-				player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
+				//player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
 		}
 	}
 }
