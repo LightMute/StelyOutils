@@ -28,7 +28,6 @@ public class App extends JavaPlugin implements Listener{
 		
 		if(10 < Integer.valueOf(player.getItemInHand().getDurability())) {
 				player.sendActionBar(prefix + player.getItemInHand().getItemMeta().getDisplayName() + " est faible !");
-				//player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 900.0F, 1.0F);
 		}
 	}
 }
