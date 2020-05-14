@@ -7,6 +7,7 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -27,19 +28,21 @@ public class App extends JavaPlugin implements Listener{
 	public void getoutilsdurab(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
 
-		if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 10 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 5) {
-			player.sendActionBar(prefix + "Ton outils va casser !");
-			player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
-		}else if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 25 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 20) {
-			player.sendActionBar(prefix + "Ton outils est abîmé");
-			player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
-		}else {
-			if(player.getItemInHand() != null) {
-				player.sendActionBar(prefix + "§a" + (Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability())) + "§a utilisations");
+		if(e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK) || e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 
+			if(player.getItemInHand() != null) {
+
+				if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 10 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 5) {
+					player.sendActionBar(prefix + "Ton outils va casser !");
+					player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
+				}else if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 25 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 20) {
+					player.sendActionBar(prefix + "Ton outils est abîmé");
+					player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
+				}else {
+					player.sendActionBar(prefix + "§a" + (Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability())) + "§a utilisations");
+
+				}
 			}
 		}
-
-
 	}
 }
