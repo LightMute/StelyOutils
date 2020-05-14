@@ -26,11 +26,14 @@ public class App extends JavaPlugin implements Listener{
 	@EventHandler
 	public void getoutilsdurab(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
-		
-		if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 10 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 8) {
-				player.sendActionBar(prefix + player.getItemInHand().getItemMeta().getDisplayName() + " est faible !");
-				player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
+
+		if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 10 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 5) {
+			player.sendActionBar(prefix + "Ton outils est trés faible !");
+			player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
 		}
-		player.sendMessage(Integer.valueOf(player.getItemInHand().getDurability()) + "/" + Integer.valueOf(player.getItemInHand().getType().getMaxDurability()));
+		if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 50 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 45) {
+			player.sendActionBar(prefix + "Ton outils est faible !");
+			player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
+		}
 	}
 }
