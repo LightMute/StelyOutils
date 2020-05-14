@@ -1,5 +1,6 @@
 name: StelyOutils
 version: 0.0.1-SNAPSHOT
+description: tesqt
 author: LightMute
 main: fr.lightmute.StelyOutils.App
 api-version: 1.14
