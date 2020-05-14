@@ -3,6 +3,7 @@ package fr.lightmute.StelyOutils;
 import java.util.HashMap;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,9 +27,10 @@ public class App extends JavaPlugin implements Listener{
 	public void getoutilsdurab(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
 		
-		if(player.getItemInHand().getMaxItemUseDuration() - Integer.valueOf(player.getItemInHand().getDurability()) < 20 && player.getItemInHand().getMaxItemUseDuration() - Integer.valueOf(player.getItemInHand().getDurability()) > 10) {
+		if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 10 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 8) {
 				player.sendActionBar(prefix + player.getItemInHand().getItemMeta().getDisplayName() + " est faible !");
+				player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
 		}
-		player.sendMessage(Integer.valueOf(player.getItemInHand().getDurability()) + "/" + player.getItemInHand().getMaxItemUseDuration());
+		player.sendMessage(Integer.valueOf(player.getItemInHand().getDurability()) + "/" + Integer.valueOf(player.getItemInHand().getType().getMaxDurability()));
 	}
 }
