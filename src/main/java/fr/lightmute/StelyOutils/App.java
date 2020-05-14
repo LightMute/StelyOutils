@@ -26,7 +26,7 @@ public class App extends JavaPlugin implements Listener{
 	public void getoutilsdurab(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
 		
-		if(20 < Integer.valueOf(player.getItemInHand().getDurability()) && 5 > Integer.valueOf(player.getItemInHand().getDurability())) {
+		if(Integer.valueOf(player.getItemInHand().getDurability()) < 10 && Integer.valueOf(player.getItemInHand().getDurability()) > 5) {
 				player.sendActionBar(prefix + player.getItemInHand().getItemMeta().getDisplayName() + " est faible !");
 		}
 	}
