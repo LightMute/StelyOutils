@@ -12,7 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class App extends JavaPlugin implements Listener{
 
-	String prefix = "§7[§cStelyWarning§7] §c";
+	String prefix = "§7[§cStelyOutils§7] §c";
 	HashMap<String, Boolean> playerspam = new HashMap<String, Boolean>();
 
 	public void onEnable() {
