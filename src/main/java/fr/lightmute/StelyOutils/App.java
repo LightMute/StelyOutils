@@ -30,7 +30,7 @@ public class App extends JavaPlugin implements Listener{
 
 		if(e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK) || e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 
-			if(player.getItemInHand() != null) {
+			if(player.getItemInHand().getDurability() != 0) {
 
 				if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 10 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 5) {
 					player.sendActionBar(prefix + "Ton outils va casser !");
