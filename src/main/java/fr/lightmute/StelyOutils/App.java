@@ -3,6 +3,7 @@ package fr.lightmute.StelyOutils;
 import java.util.HashMap;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -28,9 +29,9 @@ public class App extends JavaPlugin implements Listener{
 	public void getoutilsdurab(PlayerInteractEvent e) {
 		Player player = e.getPlayer();
 
-		if(e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK) || e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+		if(e.getAction().equals(Action.LEFT_CLICK_BLOCK) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 
-			if(player.getItemInHand().getDurability() != 0) {
+			if(!player.getItemInHand().getType().equals(Material.AIR)) {
 
 				if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 10 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 5) {
 					player.sendActionBar(prefix + "Ton outils va casser !");
