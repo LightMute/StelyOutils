@@ -38,9 +38,6 @@ public class App extends JavaPlugin implements Listener{
 				}else if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 25 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 20) {
 					player.sendActionBar(prefix + "Ton outils est abîmé");
 					player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
-				}else {
-					player.sendActionBar(prefix + "§a" + (Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability())) + "§a utilisations");
-
 				}
 			}
 		}
