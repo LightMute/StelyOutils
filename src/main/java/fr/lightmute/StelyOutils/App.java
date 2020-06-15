@@ -68,7 +68,7 @@ public class App extends JavaPlugin implements Listener{
 		}
 
 		if(armures.contains(item.getType().toString())) {
-			return "armure(s)";
+			return "armure";
 		}else {
 			return "outil";
 		}
