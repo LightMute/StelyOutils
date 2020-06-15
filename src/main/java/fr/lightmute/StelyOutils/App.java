@@ -33,10 +33,10 @@ public class App extends JavaPlugin implements Listener{
 		if(player.getItemInHand() != null) {
 
 			if(Integer.valueOf(e.getItem().getType().getMaxDurability()) - Integer.valueOf(e.getItem().getDurability()) < 10 && Integer.valueOf(e.getItem().getType().getMaxDurability()) - Integer.valueOf(e.getItem().getDurability()) > 5) {
-				player.sendActionBar(prefix + "Ton outils "+ getarmure(e.getItem()) +" va casser !");
+				player.sendActionBar(prefix + "Ton "+ getarmure(e.getItem()) +" va casser !");
 				player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
 			}else if(Integer.valueOf(e.getItem().getType().getMaxDurability()) - Integer.valueOf(e.getItem().getDurability()) < 25 && Integer.valueOf(e.getItem().getType().getMaxDurability()) - Integer.valueOf(e.getItem().getDurability()) > 20) {
-				player.sendActionBar(prefix + "Ton outils "+ getarmure(e.getItem()) +" est abîmé");
+				player.sendActionBar(prefix + "Ton "+ getarmure(e.getItem()) +" est abîmé");
 				player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
 			}
 		}
@@ -68,9 +68,9 @@ public class App extends JavaPlugin implements Listener{
 		}
 
 		if(armures.contains(item.getType().toString())) {
-			return "armure";
+			return "armure(s)";
 		}else {
-			return "outils";
+			return "outil";
 		}
 	}
 }
