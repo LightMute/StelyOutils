@@ -7,8 +7,7 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class App extends JavaPlugin implements Listener{
@@ -25,20 +24,17 @@ public class App extends JavaPlugin implements Listener{
 
 	@SuppressWarnings("deprecation")
 	@EventHandler
-	public void getoutilsdurab(PlayerInteractEvent e) {
+	public void getoutilsdurab(PlayerItemDamageEvent e) {
 		Player player = e.getPlayer();
 
-		if(e.getAction().equals(Action.LEFT_CLICK_BLOCK) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK) || e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_AIR)) {
+		if(player.getItemInHand() != null) {
 
-			if(player.getItemInHand() != null) {
-
-				if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 10 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 5) {
-					player.sendActionBar(prefix + "Ton outils va casser !");
-					player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
-				}else if(Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) < 25 && Integer.valueOf(player.getItemInHand().getType().getMaxDurability()) - Integer.valueOf(player.getItemInHand().getDurability()) > 20) {
-					player.sendActionBar(prefix + "Ton outils est abîmé");
-					player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
-				}
+			if(Integer.valueOf(e.getItem().getType().getMaxDurability()) - Integer.valueOf(e.getItem().getDurability()) < 10 && Integer.valueOf(e.getItem().getType().getMaxDurability()) - Integer.valueOf(e.getItem().getDurability()) > 5) {
+				player.sendActionBar(prefix + "Ton outils va casser !");
+				player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
+			}else if(Integer.valueOf(e.getItem().getType().getMaxDurability()) - Integer.valueOf(e.getItem().getDurability()) < 25 && Integer.valueOf(e.getItem().getType().getMaxDurability()) - Integer.valueOf(e.getItem().getDurability()) > 20) {
+				player.sendActionBar(prefix + "Ton outils est abîmé");
+				player.playSound(player.getLocation(), Sound.BLOCK_TRIPWIRE_CLICK_OFF, 900.0F, 1.0F);
 			}
 		}
 	}
